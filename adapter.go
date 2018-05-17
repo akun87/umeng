@@ -293,8 +293,8 @@ func (this *Reqd) SetPayloadExtra(i interface{}) *Reqd {
 
 //发送策略
 func (this *Reqd) SetTime(start int64, expire int64)*Reqd {
-	this.Policy.StartTime, _ = time.Parse("2006-01-02 15:04:05", start)
-	this.Policy.ExpireTime, _ = time.Parse("2006-01-02 15:04:05", expire)
+	this.Policy.StartTime = time.Unix(start,0).Format("2006-01-02 15:04:05")
+    this.Policy.ExpireTime= time.Unix(expire,0).Format("2006-01-02 15:04:05")
 	return this
 }
 
